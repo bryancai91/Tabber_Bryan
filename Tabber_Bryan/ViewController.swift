@@ -82,6 +82,8 @@ class ViewController: UIViewController {
         }
         
         tipController.selectedSegmentIndex = highlighted
+        
+        calculate()
     }
 
     override func didReceiveMemoryWarning() {
@@ -93,14 +95,7 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     
-    @IBAction func onEditingChanged(sender: AnyObject) {
-//    
-//        let defaults = NSUserDefaults.standardUserDefaults()
-//        let tipOne = defaults.doubleForKey("tipOne")
-//        let tipTwo = defaults.doubleForKey("tipTwo")
-//        let tipThree = defaults.doubleForKey("tipThree")
-//        let tipPercentages = [tipOne, tipTwo, tipThree]
-        
+    func calculate() {
         let tipPercentage = tipArray[tipController.selectedSegmentIndex]
         let billAmount = Double(billTextField.text!)
         
@@ -113,6 +108,24 @@ class ViewController: UIViewController {
         
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
+    }
+    
+    @IBAction func onEditingChanged(sender: AnyObject) {
+        
+//        let tipPercentage = tipArray[tipController.selectedSegmentIndex]
+//        let billAmount = Double(billTextField.text!)
+//        
+//        var tip = 0.0
+//        var total = 0.0
+//        if let tryBill = billAmount {
+//            tip =  tryBill * tipPercentage
+//            total = tryBill + tip
+//        }
+//        
+//        tipLabel.text = String(format: "$%.2f", tip)
+//        totalLabel.text = String(format: "$%.2f", total)
+
+        calculate()
         
         UIView.animateWithDuration(0.7, animations: {
             // This causes first view to fade in and second view to fade out
