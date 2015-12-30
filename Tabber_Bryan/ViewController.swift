@@ -36,6 +36,9 @@ class ViewController: UIViewController {
         totalLabel.alpha = 0
         tipWordLabel.alpha = 0
         totalWordLabel.alpha = 0
+        billTextField.center.y += 100
+        billLabel.center.y += 100
+        tipController.center.y += 100
         
         billTextField.becomeFirstResponder()
     }
@@ -118,6 +121,9 @@ class ViewController: UIViewController {
             self.tipWordLabel.alpha = 1
             self.totalWordLabel.alpha = 1
             self.billLabel.alpha = 0
+            self.billTextField.center.y = 64 + 49
+            self.billLabel.center.y = 64 + 62
+            self.tipController.center.y = 160 + 14.5
         })
         billLabel.hidden = true
         
@@ -131,6 +137,7 @@ class ViewController: UIViewController {
             print(billTextField.text)
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setInteger(Int(billTextField.text!)!, forKey: "billValue")
+            defaults.synchronize()
         }
         
     }
