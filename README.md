@@ -4,7 +4,7 @@ Tabber_Bryan is a tip calculator application for iOS.
 
 Submitted by: Bryan Cai
 
-Time spent: 3 hours spent in total
+Time spent: 7 hours spent in total
 
 ## User Stories
 
@@ -21,6 +21,8 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
+1. Allows for users to key in specific tip amounts
+2. Retain those chosen tip amounts across multiple boots
 
 ## Video Walkthrough 
 
@@ -33,6 +35,8 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Describe any challenges encountered while building the app.
+1. Not a design kind of guy, so design was hard for me.
+2. NSUSerDefaults is difficult to debug
 
 ## License
 

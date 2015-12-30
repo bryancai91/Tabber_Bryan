@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipController: UISegmentedControl!
+    @IBOutlet weak var billLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +89,8 @@ class ViewController: UIViewController {
 //        let tipThree = defaults.doubleForKey("tipThree")
 //        let tipPercentages = [tipOne, tipTwo, tipThree]
         
+        billLabel.alpha = 0.5
+        billLabel.hidden = true
         
         let tipPercentage = tipArray[tipController.selectedSegmentIndex]
         let billAmount = Double(billTextField.text!)
