@@ -14,6 +14,7 @@
 		D72764941C316F1E00FB0FC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D72764921C316F1E00FB0FC4 /* LaunchScreen.storyboard */; };
 		D727649F1C316F1E00FB0FC4 /* Tabber_BryanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D727649E1C316F1E00FB0FC4 /* Tabber_BryanTests.swift */; };
 		D72764AA1C316F1E00FB0FC4 /* Tabber_BryanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72764A91C316F1E00FB0FC4 /* Tabber_BryanUITests.swift */; };
+		D7468A411C32D6C2002573B5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7468A401C32D6C2002573B5 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D72764A51C316F1E00FB0FC4 /* Tabber_BryanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tabber_BryanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D72764A91C316F1E00FB0FC4 /* Tabber_BryanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabber_BryanUITests.swift; sourceTree = "<group>"; };
 		D72764AB1C316F1E00FB0FC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7468A401C32D6C2002573B5 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Tabber_Bryan/SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		D727647D1C316F1E00FB0FC4 = {
 			isa = PBXGroup;
 			children = (
+				D7468A401C32D6C2002573B5 /* SettingsViewController.swift */,
 				D72764881C316F1E00FB0FC4 /* Tabber_Bryan */,
 				D727649D1C316F1E00FB0FC4 /* Tabber_BryanTests */,
 				D72764A81C316F1E00FB0FC4 /* Tabber_BryanUITests */,
@@ -258,6 +261,7 @@
 			files = (
 				D727648C1C316F1E00FB0FC4 /* ViewController.swift in Sources */,
 				D727648A1C316F1E00FB0FC4 /* AppDelegate.swift in Sources */,
+				D7468A411C32D6C2002573B5 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +486,7 @@
 				D72764B01C316F1E00FB0FC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D72764B11C316F1E00FB0FC4 /* Build configuration list for PBXNativeTarget "Tabber_BryanTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +495,7 @@
 				D72764B31C316F1E00FB0FC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D72764B41C316F1E00FB0FC4 /* Build configuration list for PBXNativeTarget "Tabber_BryanUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +504,7 @@
 				D72764B61C316F1E00FB0FC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
