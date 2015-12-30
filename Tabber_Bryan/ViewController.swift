@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipController: UISegmentedControl!
     @IBOutlet weak var billLabel: UILabel!
+    @IBOutlet weak var tipWordLabel: UILabel!
+    @IBOutlet weak var totalWordLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +32,12 @@ class ViewController: UIViewController {
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
         
+        tipLabel.alpha = 0
+        totalLabel.alpha = 0
+        tipWordLabel.alpha = 0
+        totalWordLabel.alpha = 0
+        
         billTextField.becomeFirstResponder()
-        
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -45,6 +50,10 @@ class ViewController: UIViewController {
         let defaultSelected : Int? = defaults.integerForKey("defaultSelected")
         if defaultSelected != nil {
             highlighted = defaultSelected!
+        }
+        
+        if defaults.valueForKey("billValue") != nil {
+            billTextField.text = String(defaults.integerForKey("billValue"))
         }
         
         if defaults.valueForKey("tipOne") == nil {
@@ -89,9 +98,6 @@ class ViewController: UIViewController {
 //        let tipThree = defaults.doubleForKey("tipThree")
 //        let tipPercentages = [tipOne, tipTwo, tipThree]
         
-        billLabel.alpha = 0.5
-        billLabel.hidden = true
-        
         let tipPercentage = tipArray[tipController.selectedSegmentIndex]
         let billAmount = Double(billTextField.text!)
         
@@ -104,6 +110,29 @@ class ViewController: UIViewController {
         
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
+        
+        UIView.animateWithDuration(0.7, animations: {
+            // This causes first view to fade in and second view to fade out
+            self.tipLabel.alpha = 1
+            self.totalLabel.alpha = 1
+            self.tipWordLabel.alpha = 1
+            self.totalWordLabel.alpha = 1
+            self.billLabel.alpha = 0
+        })
+        billLabel.hidden = true
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("view will disappear")
+        
+        if billTextField.text != "" {
+            print(billTextField.text)
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setInteger(Int(billTextField.text!)!, forKey: "billValue")
+        }
+        
     }
 }
 
