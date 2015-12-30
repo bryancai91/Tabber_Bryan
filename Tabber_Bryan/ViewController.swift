@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         }
         
         if defaults.valueForKey("billValue") != nil {
-            billTextField.text = String(defaults.integerForKey("billValue"))
+            billTextField.text = String(defaults.doubleForKey("billValue"))
         }
         
         if defaults.valueForKey("tipOne") == nil {
@@ -136,7 +136,7 @@ class ViewController: UIViewController {
         if billTextField.text != "" {
             print(billTextField.text)
             let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setInteger(Int(billTextField.text!)!, forKey: "billValue")
+            defaults.setDouble(Double(billTextField.text!)!, forKey: "billValue")
             defaults.synchronize()
         }
         
