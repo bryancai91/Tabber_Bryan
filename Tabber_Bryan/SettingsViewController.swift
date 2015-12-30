@@ -18,6 +18,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("View did load on Settings")
         // Do any additional setup after loading the view.
         
         tipBar.selectedSegmentIndex = 0
@@ -42,23 +43,38 @@ class SettingsViewController: UIViewController {
         
     }
     
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("view will disappear")
         let defaults = NSUserDefaults.standardUserDefaults()
         
+        if tipSettingOne.hasText() {
+            let newTipOne = Double(tipSettingOne.text!)!/100.0
+            defaults.setDouble(newTipOne, forKey: "tipOne")
+        }
         
+        if tipSettingTwo.hasText() {
+            let newTipTwo = Double(tipSettingTwo.text!)!/100.0
+            defaults.setDouble(newTipTwo, forKey: "tipTwo")
+        }
         
-        defaults.synchronize()
-    
-    }
-    
-    @IBAction func choosingDefault(sender: AnyObject) {
-        print("func")
-        let defaults = NSUserDefaults.standardUserDefaults()
+        if tipSettingThree.hasText() {
+            let newTipThree = Double(tipSettingThree.text!)!/100.0
+            defaults.setDouble(newTipThree, forKey: "tipThree")
+        }
+
         defaults.setInteger(tipBar.selectedSegmentIndex, forKey: "defaultSelected")
+       
         defaults.synchronize()
+    
     }
+    
+//    @IBAction func choosingDefault(sender: AnyObject) {
+//        print("func")
+//        let defaults = NSUserDefaults.standardUserDefaults()
+//        defaults.setInteger(tipBar.selectedSegmentIndex, forKey: "defaultSelected")
+//        defaults.synchronize()
+//    }
 
     /*
     // MARK: - Navigation

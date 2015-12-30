@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("How many times?")
+        print("View did load on Main")
         let appDomain = NSBundle.mainBundle().bundleIdentifier!
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain)
         
@@ -29,11 +29,14 @@ class ViewController: UIViewController {
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
         
+        billTextField.becomeFirstResponder()
+        
         
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        print("View will appear on Main")
         // This is a good place to retrieve the default tip percentage from NSUserDefaults
         // and use it to update the tip amount
         
@@ -43,25 +46,22 @@ class ViewController: UIViewController {
             highlighted = defaultSelected!
         }
         
-        let tipOne : Double? = defaults.doubleForKey("tipOne")
-        if tipOne == nil {
+        if defaults.valueForKey("tipOne") == nil {
             tipArray[0] = 0.18
         } else {
-            tipArray[0] = tipOne!
+            tipArray[0] = defaults.doubleForKey("tipOne")
         }
         
-        let tipTwo : Double? = defaults.doubleForKey("tipTwo")
-        if tipTwo == nil {
-            tipArray[1] = 0.2
+        if defaults.valueForKey("tipTwo") == nil {
+            tipArray[1] = 0.20
         } else {
-            tipArray[1] = tipTwo!
+            tipArray[1] = defaults.doubleForKey("tipTwo")
         }
         
-        let tipThree : Double? = defaults.doubleForKey("tipThree")
-        if tipThree == nil {
+        if defaults.valueForKey("tipThree") == nil {
             tipArray[2] = 0.22
         } else {
-            tipArray[2] = tipThree!
+            tipArray[2] = defaults.doubleForKey("tipThree")
         }
         
         for (index, percentage) in tipArray.enumerate() {
